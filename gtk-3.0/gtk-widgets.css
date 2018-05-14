@@ -968,7 +968,7 @@ menu {
     padding: 0;
     border-radius: 0;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0;
     border-color: alpha(@theme_fg_color, 0.5);
     background-color: @menu_bg_color;
     color: @menu_fg_color;
@@ -2423,10 +2423,6 @@ button.color {
     padding-right: 0;
 }
 
-.path-bar button.slider-button:dir(ltr) {
-    border-right-width: 0;
-}
-
 .path-bar button:active {
     padding: 6px;
     margin: 0;
@@ -2467,7 +2463,7 @@ headerbar .subtitle {
 }
 
 headerbar switch {
-    margin: 3px;
+    margin: 6px;
 }
 
 /******************
@@ -2675,6 +2671,57 @@ toolbar entry:focus {
     border-color: shade(@theme_bg_color, 0.75);
     background-color: shade(@theme_bg_color, 0.80);
     background-image: none;
+}
+
+/******************
+ * Linked Widgets *
+ *****************/
+.linked entry:first-child,
+.linked button:first-child,
+.linked combobox:first-child button,
+.linked entry:not(:only-child),
+.linked button:not(:only-child),
+.linked combobox:not(:only-child) button {
+    border-right-width: 0;
+}
+
+.linked entry:last-child,
+.linked button:last-child,
+.linked combobox:last-child button,
+.linked button:only-child,
+.linked entry:only-child,
+.linked combobox:only-child button {
+    border-right-width: 2px;
+}
+
+.vertical.linked entry:first-child,
+.vertical.linked button:first-child,
+.vertical.linked combobox:first-child button,
+.vertical.linked entry:not(:only-child),
+.vertical.linked button:not(:only-child),
+.vertical.linked combobox:not(:only-child) button {
+    border-right-width: 2px;
+    border-bottom-width: 0;
+}
+
+.vertical.linked entry:last-child,
+.vertical.linked button:last-child,
+.vertical.linked combobox:last-child button,
+.vertical.linked button:only-child,
+.vertical.linked entry:only-child,
+.vertical.linked combobox:only-child button {
+    border-bottom-width: 2px;
+}
+
+.vertical.linked spinbutton button:first-child {
+    border-width: 2px;
+    border-right-width: 0;
+}
+
+.vertical.linked spinbutton button:last-child {
+    border-width: 0;
+    border-top-width: 2px;
+    border-right-width: 2px;
 }
 
 /***********
@@ -3325,16 +3372,11 @@ decoration:backdrop {
 }
 
 .popup decoration {
-    box-shadow: none;
+    box-shadow: 0 0 0 2px @theme_fg_color;
 }
 
 .ssd decoration {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.23);
-}
-
-.csd.popup decoration {
-    border-radius: 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13);
 }
 
 /*tooltip.csd decoration {
